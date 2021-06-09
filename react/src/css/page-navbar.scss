@@ -1,0 +1,22 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: {
+    left: 2em;
+    right: 2em;
+  }
+  a {
+    text-decoration: none;
+    color: #232323;
+  }
+  > div {
+    display: inherit;
+    justify-content: inherit;
+    .menu-items {
+      min-width: 200px;
+      @media (max-width: 989px) {
+        display: none;
+      }
+    }
+  }
+}

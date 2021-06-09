@@ -1,12 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+import "./index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-
-import "bulma/css/bulma.min.css";
 
 const client = new ApolloClient({
   uri: "http://localhost:8000/graphql",

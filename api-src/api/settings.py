@@ -88,10 +88,6 @@ DATABASES = {
         'HOST': 'db',
         'PORT': '5432',
     }
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
 }
 
 
@@ -138,8 +134,8 @@ MEDIA_ROOT = Path(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # SMTP Settings
-SMTP_PASS = env("SMTP_PASS")
-SMTP_EMAIL = env("SMTP_EMAIL")
+# SMTP_PASS = env("SMTP_PASS")
+# SMTP_EMAIL = env("SMTP_EMAIL")
 
 GRAPHENE = {
     "SCHEMA": "api.schema.schema"
@@ -159,8 +155,8 @@ BG_COLORS = {
 }
 
 # Cryptography settings for encrypted Documents/Notes
-CRYPTOGRAPHY_SALT = env("CRYPTOGRAPHY_SALT")
-CRYPTOGRAPHY_KEY = env("CRYPTOGRAPHY_KEY")
+# CRYPTOGRAPHY_SALT = env("CRYPTOGRAPHY_SALT")
+# CRYPTOGRAPHY_KEY = env("CRYPTOGRAPHY_KEY")
 
 JAZZMIN_SETTINGS = CONFIG
 JAZZMIN_UI_TWEAKS = UI_TWEAKS
