@@ -14,17 +14,24 @@ class Query(graphene.ObjectType):
         name_last=graphene.String(required=True),
         name_first=graphene.String(required=False)
     )
+    entries_by_username = graphene.List(
+        BioEntryType,
+        username=graphene.String(required=True)
+    )
 
     def resolve_entries_by_member_id(root, info, id):
         return Entry.objects.filter(member=id)
 
     def resolve_entries_by_member_name(root, info, name_last, name_first=None):
-        member = Member.objects.filter(name_last__iexact=name_last)
+        member = Member.objects.filter(last_name__iexact=name_last)
         if name_first != None:
             try:
-                member = Member.objects.get(name_first__iexact=name_first)
+                member = Member.objects.get(first_name__iexact=name_first)
             except Member.DoesNotExist:
                 return None
         else:
             return Entry.objects.filter(member__in=member)
         return Entry.objects.filter(member=member)
+
+    def resolve_entries_by_username(root, info, username):
+        return Entry.objects.filter(member__username=username)

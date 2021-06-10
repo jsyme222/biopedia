@@ -1,6 +1,7 @@
 FROM node:12.18.2
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
+ENV REACT_APP_MEDIA_URL http://localhost:8000/media/
 COPY package.json ./
 COPY yarn.lock ./
 RUN yarn install --silent

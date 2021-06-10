@@ -1,9 +1,13 @@
 import { BrowserRouter } from "react-router-dom";
+import { useAtom } from "jotai";
+import { userAtom } from "./jotai-data/Atoms";
 
 import PageNavbar from "./components/page-components/page-navbar";
+import SidebarMenu from "./components/page-components/sidebar-menu";
 import Routes from "./routes/routes";
+import Splash from "./views/splash";
 
-import "./App.css";
+import "./css/App.scss";
 // import { gql, useQuery } from "@apollo/client";
 
 // const MEMBERS = gql`
@@ -17,14 +21,15 @@ import "./App.css";
 // `;
 
 function App() {
-  // const history = useHistory()
+  const [user, setUser] = useAtom(userAtom);
   // const { loading, error, data } = useQuery(MEMBERS);
 
   return (
     <div className="App">
       <BrowserRouter>
         <PageNavbar />
-        <Routes />
+        <SidebarMenu />
+        {user.token ? <Routes /> : <Splash />}
       </BrowserRouter>
     </div>
   );

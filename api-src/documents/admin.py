@@ -9,4 +9,8 @@ from django.contrib import admin
     BioDocumentAudio
 )
 class DocumentAdmin(admin.ModelAdmin):
-    pass
+    def save_model(self, request, obj, form, change):
+        if not obj.owner:
+            obj.owner = request.user
+        obj.last_modified_by = request.user
+        obj.save()

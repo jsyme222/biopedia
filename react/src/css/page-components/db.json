@@ -1,0 +1,77 @@
+[
+  {
+    "model": "bio_entries.bioentrycategory",
+    "pk": 1,
+    "fields": { "title": "ww2" }
+  },
+  {
+    "model": "bio_entries.bioentrycategory",
+    "pk": 2,
+    "fields": { "title": "ww3" }
+  },
+  {
+    "model": "bio_entries.bioentrycategory",
+    "pk": 3,
+    "fields": { "title": "art" }
+  },
+  {
+    "model": "bio_entries.entry",
+    "pk": "1448e211-a8a7-4777-9fd1-c9bddeec0e72",
+    "fields": {
+      "title": "Test Doc",
+      "category": 2,
+      "member": 1,
+      "date_recorded_on": "2021-06-09T22:33:30.513Z",
+      "date_of_events": "2021-06-09",
+      "content_written": "<hr />\r\n<p>All mail</p>\r\n\r\n<p>Trash</p>\r\n\r\n<p>Spam</p>\r\n\r\n<ul>\r\n</ul>\r\n\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa sapien faucibus et molestie ac.</p>\r\n\r\n<p>Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra tellus. Purus sit ame</p>",
+      "content_audio": null,
+      "content_audio_url": null,
+      "content_video": null,
+      "content_video_url": null,
+      "events_related_to": [],
+      "events_corroborating": [],
+      "content_images": [1],
+      "content_documents": []
+    }
+  },
+  {
+    "model": "bio_entries.entry",
+    "pk": "836c3d0b-e3de-49b6-a799-49989b325da7",
+    "fields": {
+      "title": "Test Document",
+      "category": 1,
+      "member": 4,
+      "date_recorded_on": "2021-06-09T22:35:55.689Z",
+      "date_of_events": "2021-06-09",
+      "content_written": "<hr />\r\n<p>All mail</p>\r\n\r\n<p>Trash</p>\r\n\r\n<p>Spam</p>\r\n\r\n<ul>\r\n</ul>\r\n\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa sapien faucibus et molestie ac.</p>\r\n\r\n<p>Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra tellus. Purus sit ame</p>",
+      "content_audio": null,
+      "content_audio_url": null,
+      "content_video": null,
+      "content_video_url": null,
+      "events_related_to": [],
+      "events_corroborating": [],
+      "content_images": [],
+      "content_documents": [1]
+    }
+  },
+  {
+    "model": "bio_entries.entry",
+    "pk": "c18d2ef8-39df-4775-b822-6924ee418920",
+    "fields": {
+      "title": "The Lawd is Good",
+      "category": 3,
+      "member": 3,
+      "date_recorded_on": "2021-06-09T22:21:28.422Z",
+      "date_of_events": "2021-06-09",
+      "content_written": "<p>[Hook: Josh Sallee]<br />\r\nI need two more minutes<br />\r\nGive me one more try<br />\r\nI been at it three weeks<br />\r\nAnd I still wonder why<br />\r\nWhat&#39;s it for?<br />\r\nYeah, what&#39;s it for?<br />\r\nWonder why<br />\r\nWhat&#39;s it for?<br />\r\nYeah, what&#39;s it for?<br />\r\nWonder why<br />\r\nWhat&#39;s it for?<br />\r\n<br />\r\n[Verse 1: K.A.A.N]<br />\r\nI&#39;m just a nigga that never had shit<br />\r\nI&#39;m just a nigga that want a bad bitch<br />\r\nThree of them hoes I call it a hat-trick<br />\r\nStep up the game but they never call shit, come on<br />\r\nSteadily working a nigga fillin&#39; up the funnel<br />\r\nA couple of years ago I was somebody to front on<br />\r\nNow they see the kid and they tellin&#39; me I should come on<br />\r\nBut I ain&#39;t done shit, nah<br />\r\nI stayed on my shit, yah<br />\r\nI just spaced, I been gone<br />\r\nPedaled through the nonsense<br />\r\nKnowledge got the shit that get into a nigga&#39;s conscience<br />\r\nKnowledge been killing shit but never give no responses<br />\r\nKnowledge kept it real while you was looking for responsive<br />\r\nThird-person, I speak, I speak<br />\r\nI work hard when you sleep, you sleep<br />\r\nI thank God that I&#39;m me, I&#39;m me<br />\r\nI thank God that I&#39;m me, I&#39;m me<br />\r\nCause I don&#39;t wanna meet you niggas anyway<br />\r\nSo when I listen to your shit I don&#39;t hear anything<br />\r\nIt&#39;s just repetitive banter<br />\r\nWith similar stanzas<br />\r\nAnd ignorant grammar<br />\r\nI might need glasses<br />\r\nCause I don&#39;t see how that&#39;s dope<br />\r\nIt&#39;s not<br />\r\nJust leave me alone while I play<br />\r\n2Pac<br />\r\nGot seven blunts in my plate<br />\r\nUh-huh<br />\r\nI take them all with my patience<br />\r\nYes Lawd</p>",
+      "content_audio": null,
+      "content_audio_url": null,
+      "content_video": null,
+      "content_video_url": null,
+      "events_related_to": [],
+      "events_corroborating": [],
+      "content_images": [],
+      "content_documents": []
+    }
+  }
+]

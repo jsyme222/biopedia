@@ -1,15 +1,36 @@
+import { gql, useQuery } from "@apollo/client";
+import { Grid } from "@material-ui/core";
 import { useAtom } from "jotai";
-import { loggedInAtom } from "../jotai-data/Atoms";
+import ItemList from "../components/dashboard-components/item-list";
+
+import "../css/dashboard-components/dashboard.scss";
+import { ENTRIES_BY_USERNAME } from "../gql/entries/queries";
+import { userAtom } from "../jotai-data/Atoms";
 
 function Dashboard() {
-    // eslint-disable-next-line
-  const [loggedInUser, setLoggedInUser] = useAtom(loggedInAtom);
+  const [user, setUser] = useAtom(userAtom);
+
+  const boards = [
+    {
+      title: "Entries",
+      q: ENTRIES_BY_USERNAME(user.username),
+    },
+    {
+      title: "Documents",
+      q: ENTRIES_BY_USERNAME(user.username),
+    },
+  ];
 
   return (
-    <header className="App-header">
-      DASHBOARD
-      {loggedInUser ? "Logged in" : "Not Logged In"}
-    </header>
+    <div className="dashboard-root">
+      <Grid container spacing={3} justify="center" wrap="wrap">
+        {boards.map((b, i) => (
+          <Grid item lg={3} md={5}>
+            <ItemList color={i} listTitle={b.title} query={b.q} />
+          </Grid>
+        ))}
+      </Grid>
+    </div>
   );
 }
 

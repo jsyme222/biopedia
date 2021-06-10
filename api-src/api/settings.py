@@ -25,6 +25,8 @@ ALLOWED_HOSTS = env('ALLOWED_HOSTS')
 
 CORS_ALLOW_ALL_ORIGINS = True
 
+AUTH_USER_MODEL = 'members.Member'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,6 +43,7 @@ INSTALLED_APPS = [
     'documents',
     'graphene_django',
     'ckeditor',
+    'graphql_auth',
 ]
 
 MIDDLEWARE = [
@@ -136,9 +139,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # SMTP Settings
 # SMTP_PASS = env("SMTP_PASS")
 # SMTP_EMAIL = env("SMTP_EMAIL")
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 GRAPHENE = {
-    "SCHEMA": "api.schema.schema"
+    "SCHEMA": "api.schema.schema",
+    'MIDDLEWARE': [
+        'graphql_jwt.middleware.JSONWebTokenMiddleware',
+    ],
 }
 
 #  CLI Settings
@@ -161,3 +168,26 @@ BG_COLORS = {
 JAZZMIN_SETTINGS = CONFIG
 JAZZMIN_UI_TWEAKS = UI_TWEAKS
 USE_I18N = True
+
+# graphql-authentication
+AUTHENTICATION_BACKENDS = [
+    "graphql_auth.backends.GraphQLAuthBackend",
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+GRAPHQL_JWT = {
+    'JWT_AUTH_HEADER_PREFIX': 'Bearer',
+    "JWT_VERIFY_EXPIRATION": True,
+    "JWT_ALLOW_ANY_CLASSES": [
+        "graphql_auth.mutations.Register",
+        "graphql_auth.mutations.VerifyAccount",
+        "graphql_auth.mutations.ResendActivationEmail",
+        "graphql_auth.mutations.SendPasswordResetEmail",
+        "graphql_auth.mutations.PasswordReset",
+        "graphql_auth.mutations.ObtainJSONWebToken",
+        "graphql_auth.mutations.VerifyToken",
+        "graphql_auth.mutations.RefreshToken",
+        "graphql_auth.mutations.RevokeToken",
+        "graphql_auth.mutations.VerifySecondaryEmail",
+    ],
+}

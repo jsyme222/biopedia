@@ -3,6 +3,7 @@ from django.db import models
 from django.db.models.signals import post_delete
 
 from api.utils.filecleanup import file_cleanup, image_file_cleanup
+from api.settings import AUTH_USER_MODEL as User
 
 
 class AbstractBioDocument(models.Model):
@@ -18,6 +19,8 @@ class AbstractBioDocument(models.Model):
         return dir
 
     title = models.CharField(max_length=250, default="")
+    owner = models.ForeignKey(
+        User, blank=True, null=True, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
         return self.title

@@ -1,7 +1,9 @@
+from documents.models import BioDocumentAudio, BioDocumentImage, BioDocumentVideo
 from django.db import models
 import graphene
 from graphene_django import DjangoObjectType
 from bio_entries.models import BioEntryCategory, Entry, BioDocument
+
 
 class EntryCategoryType(DjangoObjectType):
     class Meta:
@@ -16,10 +18,4 @@ class EntryCategoryInputType(graphene.InputObjectType):
 class BioEntryType(DjangoObjectType):
     class Meta:
         model = Entry
-        fields = "__all__"
-
-
-class BioDocumentType(DjangoObjectType):
-    class Meta:
-        model = BioDocument
         fields = "__all__"

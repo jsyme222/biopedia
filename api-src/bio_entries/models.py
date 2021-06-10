@@ -119,4 +119,4 @@ class Entry(AbstractBioEntry):
     )
 
     def __str__(self) -> str:
-        return f'{self.member.name_first} - {self.title}'
+        return f'{self.member.username} - {self.title}'

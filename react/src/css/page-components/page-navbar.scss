@@ -1,0 +1,34 @@
+.navbar {
+  background-color: white !important;
+  .menu-button {
+    margin-right: 1em;
+  }
+  .logo {
+    margin-right: 2em;
+  }
+  .toolbar-links {
+    flex-grow: 1;
+    .MuiGrid-item {
+      padding: 1em;
+    }
+  }
+  .user-avatar {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    color: #232323;
+    p {
+      width: max-content;
+      margin: 0;
+      margin-bottom: 1em;
+      padding: 0;
+    }
+  }
+  a {
+    text-decoration: none;
+    color: #232323;
+    &:hover {
+      color: rgb(143, 143, 66);
+    }
+  }
+}
