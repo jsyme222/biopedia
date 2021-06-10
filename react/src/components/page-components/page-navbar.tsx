@@ -19,12 +19,15 @@ import { dashboard } from "../../routes/paths";
 import { useAtom } from "jotai";
 import { userAtom, menuOpenAtom } from "../../jotai-data/Atoms";
 import linkItems from "./menu-links";
+import ModalBase from "./modal-base";
+import LoginForm from "../../views/login";
 
 import "../../css/page-components/page-navbar.scss";
 
 function PageNavbar() {
   const [menuAnchorEl, setMenuAnchorEl] = useState(null);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const [login, setLogin] = useState(false);
   const [menuOpen, setMenuOpen] = useAtom(menuOpenAtom);
   const [user, setUser] = useAtom(userAtom);
 
@@ -42,15 +45,20 @@ function PageNavbar() {
     closeUserMenu();
     setUser({
       username: "",
-      admin: false,
       token: "",
     });
   };
 
+  const renderLogin = (
+    <ModalBase open={login} setOpen={setLogin}>
+      <LoginForm />
+    </ModalBase>
+  );
+
   const renderMenu = (
     <Menu
       anchorEl={menuAnchorEl}
-      anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+      // anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
       id="user-menu"
       keepMounted
       transformOrigin={{ vertical: "top", horizontal: "right" }}
@@ -114,9 +122,7 @@ function PageNavbar() {
             <Button
               color="primary"
               variant="contained"
-              onClick={() =>
-                setUser({ ...user, username: "jdogg Wumbow", token: "true" })
-              }
+              onClick={() => setLogin(true)}
             >
               Login
             </Button>
@@ -124,6 +130,7 @@ function PageNavbar() {
         )}
       </Toolbar>
       {renderMenu}
+      {!user.token && !user.username && renderLogin}
     </AppBar>
   );
 }

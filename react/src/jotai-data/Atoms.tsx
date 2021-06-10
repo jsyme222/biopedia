@@ -2,14 +2,12 @@ import { atom } from "jotai";
 
 type User = {
   username: string;
-  admin: boolean;
   token: string;
 };
 
 const emptyUser: User = {
-  username: "msyme",
-  admin: false,
-  token: "test",
+  username: "",
+  token: "",
 };
 
 export const menuOpenAtom = atom<boolean>(false);

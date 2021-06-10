@@ -1,11 +1,13 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
+
 from .models import Member, MemberCategory
 
 
 @admin.register(Member)
-class MemberAdmin(admin.ModelAdmin):
+class MemberAdmin(UserAdmin):
     exclude = ["date_death", "location_death"]
-    readonly_fields = ["password"]
+    # readonly_fields = ["password"]
 
     fieldsets = (
         ("Status", {
@@ -15,7 +17,7 @@ class MemberAdmin(admin.ModelAdmin):
                     'is_staff',
                 ),
                 'is_active',
-                # 'jwt_token',
+                'password',
                 )
         }),
         ("General", {

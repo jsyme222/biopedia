@@ -1,8 +1,9 @@
 export const dashboard = {
-    path: "/",
-    name: "Dashboard"
+  path: "/",
+  name: "Dashboard",
 };
+
 export const bioEntries = {
-    path: "/bio-entries",
-    name: "Biography Entries"
+  path: "/bio-entries",
+  name: "Biography Entries",
 };
