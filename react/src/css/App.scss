@@ -2,6 +2,7 @@
   background-color: #282c34;
   text-align: center;
   min-height: 98vh;
+  overflow: hidden;
 }
 
 .App-logo {
@@ -14,6 +15,7 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
 
 .App-header {
   min-height: 100vh;

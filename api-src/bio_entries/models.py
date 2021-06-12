@@ -49,20 +49,23 @@ class AbstractBioEntry(models.Model):
 
     member = models.ForeignKey(
         Member,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+        help_text="Will default to logged in user (YOU)."
     )
 
     date_recorded_on = models.DateTimeField(default=timezone.now)
     date_of_events = models.DateField(null=True, blank=True)
 
     events_related_to = models.ManyToManyField(
-        "self", 
+        "self",
         verbose_name="Related Event",
         blank=True,
         help_text="Other events in your Biography that are related to this one."
     )
     events_corroborating = models.ManyToManyField(
-        "self", 
+        "self",
         verbose_name="Corroborating Event",
         blank=True,
     )

@@ -5,5 +5,10 @@ export const dashboard = {
 
 export const bioEntries = {
   path: "/bio-entries",
-  name: "Biography Entries",
+  name: "Entries",
+};
+
+export const bioDocuments = {
+  path: "/documents",
+  name: "Documents",
 };

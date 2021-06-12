@@ -9,6 +9,7 @@ query {
     }
     dateRecordedOn
     dateOfEvents
+    contentWritten
     contentImages {
       title
       document
@@ -27,4 +28,4 @@ query {
     }
   }
 }
-`
+`;

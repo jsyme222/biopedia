@@ -2,7 +2,8 @@ import { Route, Switch } from "react-router";
 
 import BioEntries from "../views/bio-entries";
 import Dashboard from "../views/dashboard";
-import { bioEntries, dashboard } from "./paths";
+import DocumentsView from "../views/documents-view";
+import { bioEntries, dashboard, bioDocuments } from "./paths";
 
 type RouteType = {
   path: string;
@@ -19,6 +20,10 @@ const routes = [
     ...bioEntries,
     comp: BioEntries,
   },
+  {
+    ...bioDocuments,
+    comp: DocumentsView,
+  },
 ];
 
 const Routes = () => (
@@ -26,7 +31,6 @@ const Routes = () => (
     {routes.map((route: RouteType, i: number) => (
       <Route key={i} exact path={route.path} children={<route.comp />} />
     ))}
-    {/* <Route path="/bio-entries" render={() => <BioEntries />} /> */}
   </Switch>
 );
 

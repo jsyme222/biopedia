@@ -17,7 +17,7 @@ import { MenuRounded, AccountCircle, ExitToApp } from "@material-ui/icons";
 
 import { dashboard } from "../../routes/paths";
 import { useAtom } from "jotai";
-import { userAtom, menuOpenAtom } from "../../jotai-data/Atoms";
+import { userAtom, menuOpenAtom, emptyUser } from "../../jotai-data/Atoms";
 import linkItems from "./menu-links";
 import ModalBase from "./modal-base";
 import LoginForm from "../../views/login";
@@ -31,22 +31,17 @@ function PageNavbar() {
   const [menuOpen, setMenuOpen] = useAtom(menuOpenAtom);
   const [user, setUser] = useAtom(userAtom);
 
-  const openUserMenu = (e: any) => {
+  const toggleUserMenu = (e: any) => {
     setMenuAnchorEl(e.currentTarget);
-    setUserMenuOpen(true);
-  };
-
-  const closeUserMenu = () => {
-    setMenuAnchorEl(null);
-    setUserMenuOpen(false);
+    setUserMenuOpen(!menuOpen);
   };
 
   const logoff = () => {
-    closeUserMenu();
-    setUser({
-      username: "",
-      token: "",
-    });
+    setMenuAnchorEl(null);
+    setUserMenuOpen(false);
+    setUser(emptyUser);
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
   };
 
   const renderLogin = (
@@ -58,15 +53,14 @@ function PageNavbar() {
   const renderMenu = (
     <Menu
       anchorEl={menuAnchorEl}
-      // anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
       id="user-menu"
       keepMounted
       transformOrigin={{ vertical: "top", horizontal: "right" }}
       open={userMenuOpen}
-      onClose={closeUserMenu}
+      onClose={toggleUserMenu}
     >
-      <MenuItem onClick={closeUserMenu}>Profile</MenuItem>
-      <MenuItem onClick={closeUserMenu}>My account</MenuItem>
+      <MenuItem onClick={toggleUserMenu}>Profile</MenuItem>
+      <MenuItem onClick={toggleUserMenu}>My account</MenuItem>
       <hr />
       <MenuItem onClick={logoff}>
         <ListItemIcon>
@@ -96,7 +90,7 @@ function PageNavbar() {
         <Grid container className="toolbar-links">
           <Hidden smDown>
             {linkItems.map((link) => (
-              <Grid item>
+              <Grid item key={link.name}>
                 <Link to={link.path}>{link.name}</Link>
               </Grid>
             ))}
@@ -110,7 +104,7 @@ function PageNavbar() {
               aria-label="account of current user"
               // aria-controls={menuId}
               aria-haspopup="true"
-              onClick={openUserMenu}
+              onClick={toggleUserMenu}
               color="primary"
             >
               <AccountCircle />

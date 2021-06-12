@@ -4,32 +4,28 @@ import { userAtom } from "./jotai-data/Atoms";
 
 import PageNavbar from "./components/page-components/page-navbar";
 import SidebarMenu from "./components/page-components/sidebar-menu";
+import ViewEntry from "./views/view-entry";
 import Routes from "./routes/routes";
 import Splash from "./views/splash";
 
 import "./css/App.scss";
-// import { gql, useQuery } from "@apollo/client";
-
-// const MEMBERS = gql`
-//   query {
-//     allMembers {
-//       id
-//       nameFirst
-//       nameLast
-//     }
-//   }
-// `;
 
 function App() {
-  const [user, setUser] = useAtom(userAtom);
-  // const { loading, error, data } = useQuery(MEMBERS);
+  const [user] = useAtom(userAtom);
 
   return (
     <div className="App">
       <BrowserRouter>
         <PageNavbar />
         <SidebarMenu />
-        {user.token ? <Routes /> : <Splash />}
+        {user.token && user.username ? (
+          <>
+            <Routes />
+            <ViewEntry />
+          </>
+        ) : (
+          <Splash />
+        )}
       </BrowserRouter>
     </div>
   );

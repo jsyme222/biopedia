@@ -1,5 +1,5 @@
-import { bioEntries, dashboard } from "../../routes/paths";
+import { bioDocuments, bioEntries, dashboard } from "../../routes/paths";
 
-const linkItems = [dashboard, bioEntries];
+const linkItems = [dashboard, bioEntries, bioDocuments];
 
-export default linkItems
+export default linkItems;

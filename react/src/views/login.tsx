@@ -4,11 +4,7 @@ import { useAtom } from "jotai";
 import { useState } from "react";
 import { LOGIN } from "../gql/auth/queries";
 import { userAtom } from "../jotai-data/Atoms";
-
-type LoginType = {
-  username: string;
-  password: string;
-};
+import { LoginType, UserType } from "../types/types";
 
 const loginState: LoginType = {
   username: "",
@@ -19,7 +15,7 @@ function LoginForm() {
   const [user, setUser] = useAtom(userAtom);
   const [loginUser, setLoginUser] = useState(loginState);
   const [errors, setErrors] = useState(null);
-  const [getLogin, { data }] = useMutation(LOGIN({ ...loginUser }));
+  const [getLogin] = useMutation(LOGIN({ ...loginUser }));
 
   const setUsername = (e: any) => {
     setLoginUser({ ...loginUser, username: e.target.value });
@@ -29,14 +25,23 @@ function LoginForm() {
   };
 
   const login = () => {
+    if (user.token || user.username) {
+      setUser({ username: "", token: "" });
+    }
     getLogin()
       .then((d: any) => {
         if (d.data && d.data.tokenAuth) {
-          setUser({ username: loginUser.username, token: d.data.tokenAuth });
+          const userObj: UserType = {
+            username: loginUser.username,
+            token: d.data.tokenAuth.token,
+          };
+          setUser(userObj);
+          localStorage.setItem("username", userObj.username);
+          localStorage.setItem("token", userObj.token);
         }
       })
       .catch((e: any) => {
-        console.log(e);
+        console.error(e);
         setErrors(e.toString());
       });
   };

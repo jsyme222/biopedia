@@ -40,6 +40,12 @@ class BioEntryAdmin(admin.ModelAdmin):
         }),
     )
 
+    def save_model(self, request, obj, form, change):
+        if not obj.member:
+            obj.member = request.user
+        obj.last_modified_by = request.user
+        obj.save()
+
 
 @admin.register(
     BioEntryCategory, 

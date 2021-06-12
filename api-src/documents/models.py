@@ -20,7 +20,12 @@ class AbstractBioDocument(models.Model):
 
     title = models.CharField(max_length=250, default="")
     owner = models.ForeignKey(
-        User, blank=True, null=True, on_delete=models.CASCADE)
+        User, 
+        blank=True, 
+        null=True, 
+        on_delete=models.CASCADE,
+        help_text="Will default to logged in user (YOU)."
+    )
 
     def __str__(self) -> str:
         return self.title

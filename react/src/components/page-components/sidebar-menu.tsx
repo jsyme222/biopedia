@@ -19,6 +19,7 @@ function SidebarMenu() {
       <List>
         {linkItems.map((link) => (
           <ListItem
+            key={link.name}
             component={Link}
             className="menu-link"
             to={link.path}
@@ -30,7 +31,6 @@ function SidebarMenu() {
         ))}
       </List>
     </Drawer>
-    
   );
 }
 
