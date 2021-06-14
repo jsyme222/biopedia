@@ -11,7 +11,6 @@ class DocumentUnion(graphene.Union):
     @classmethod
     def resolve_type(cls, instance, info):
         if isinstance(instance, BioDocument):
-            print("BIODOC")
             return BioDocumentType
         if isinstance(instance, BioDocumentImage):
             return BioDocumentImageType

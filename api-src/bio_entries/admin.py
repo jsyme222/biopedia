@@ -48,7 +48,15 @@ class BioEntryAdmin(admin.ModelAdmin):
 
 
 @admin.register(
-    BioEntryCategory, 
+    BioEntryCategory,
 )
 class RestAdmin(admin.ModelAdmin):
-    pass
+    readonly_fields = ["id", ]
+    fieldsets = (
+        ("General", {
+            'fields': (
+                'id',
+                'title',
+            )
+        }),
+    )
